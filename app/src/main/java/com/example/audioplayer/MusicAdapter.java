@@ -1,6 +1,7 @@
 package com.example.audioplayer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaMetadata;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -47,6 +48,13 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
                     .load(R.drawable.ic_music_note)
                     .into(holder.album_art);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, PlayerActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
