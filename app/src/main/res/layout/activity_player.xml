@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/gradient_bg">
+       >
 
         <!-- button back pada bagian kiri atas-->
         <ImageView
@@ -65,11 +65,13 @@
             android:id="@+id/cover_art"/>
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
             android:id="@+id/imageViewGradient"
-            android:src="@drawable/gradient_bg"
-            android:layout_alignParentBottom="true"/>
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp" />
 
     </RelativeLayout>
 
@@ -111,7 +113,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/gradient_bg">
+      >
 
         <!--    Tombol Shuffle    -->
         <ImageView

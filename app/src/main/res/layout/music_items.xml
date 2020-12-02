@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:padding="5dp"
         android:src="@drawable/ic_music_note"
-        app:tint="#00BCD4" />
+       />
 
     <TextView
         android:id="@+id/file_name"
@@ -22,6 +22,15 @@
         android:text="File Name"
         android:layout_toEndOf="@+id/music_img"
         android:layout_marginStart="10dp"
+        android:layout_toStartOf="@+id/menuMore"
         android:layout_centerVertical="true"
         android:textColor="@color/white"/>
+    <ImageView
+        android:id="@+id/menuMore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_more"
+        android:layout_alignParentEnd="true"
+        />
 </RelativeLayout>
