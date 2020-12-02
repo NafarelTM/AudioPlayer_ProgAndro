@@ -12,8 +12,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:padding="5dp"
-        android:src="@drawable/ic_music_note"
-        app:tint="#00BCD4" />
+        android:src="@drawable/ic_music_note"/>
 
     <TextView
         android:id="@+id/file_name"
