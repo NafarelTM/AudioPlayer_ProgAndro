@@ -96,7 +96,7 @@ private void deleteFile(int position, View v)
         Snackbar.make(v, "File Deleted", Snackbar.LENGTH_LONG).show();
     }else
     {
-        Snackbar.make(v, "can't be Deleted", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(v, "Can't be Deleted", Snackbar.LENGTH_LONG).show();
     }
 }
 

@@ -390,42 +390,46 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         byte[] art = retriever.getEmbeddedPicture();
         Bitmap bitmap;
         if(art != null){
+            //Palette API
             bitmap = BitmapFactory.decodeByteArray(art, 0, art.length);
             ImageAnimation(this, cover_art,bitmap);
-//            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-//                @Override
-//                public void onGenerated(@Nullable Palette palette) {
-//                    Palette.Swatch swatch = palette.getDominantSwatch();
-//                if(swatch !=null) {
-//                ImageView gradient = findViewById(R.id.imageViewGradient);
-//                RelativeLayout mContainer = findViewById(R.id.mContainer);
-//                gradient.setBackgroundResource(R.drawable.gradient_bg);
-//                mContainer.setBackgroundResource(R.drawable.main_bg);
-//                GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
-//                        new int[]{swatch.getRgb(), 0x00000000});
-//                gradient.setBackground(gradientDrawable);
-//                GradientDrawable gradientDrawableBG = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
-//                            new int[]{swatch.getRgb(), swatch.getRgb()});
-//                mContainer.setBackground(gradientDrawable);
-//                song_name.setTextColor(swatch.getTitleTextColor());
-//                artist_name.setTextColor(swatch.getBodyTextColor());
-//                }else {
-//                    ImageView gradient = findViewById(R.id.imageViewGradient);
-//                    RelativeLayout mContainer = findViewById(R.id.mContainer);
-//                    gradient.setBackgroundResource(R.drawable.gradient_bg);
-//                    mContainer.setBackgroundResource(R.drawable.main_bg);
-//                    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
-//                            new int[]{0xff000000, 0x00000000});
-//                    gradient.setBackground(gradientDrawable);
-//                    GradientDrawable gradientDrawableBG = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
-//                            new int[]{0xff000000, 0xff000000});
-//                    mContainer.setBackground(gradientDrawable);
-//                    song_name.setTextColor(Color.WHITE);
-//                    artist_name.setTextColor(Color.DKGRAY);
-//                    }
-//                }
-//
-//            });
+            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                @Override
+                public void onGenerated(@Nullable Palette palette) {
+                    Palette.Swatch swatch = palette.getDominantSwatch();
+                    if(swatch != null){
+                        ImageView gradient = findViewById(R.id.imageViewGradient);
+                        RelativeLayout mContainer = findViewById(R.id.mContainer);
+                        gradient.setBackgroundResource(R.drawable.gradient_bg);
+                        mContainer.setBackgroundResource(R.drawable.main_bg);
+                        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
+                                new int[]{swatch.getRgb(), 0x00000000});
+                        gradient.setBackground(gradientDrawable);
+                        GradientDrawable gradientDrawableBg = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
+                                new int[]{swatch.getRgb(), swatch.getRgb()});
+                        mContainer.setBackground(gradientDrawableBg);
+                        song_name.setTextColor(swatch.getTitleTextColor());
+                        artist_name.setTextColor(swatch.getBodyTextColor());
+                        duration_played.setTextColor(swatch.getBodyTextColor());
+                        duration_total.setTextColor(swatch.getBodyTextColor());
+                    } else{
+                        ImageView gradient = findViewById(R.id.imageViewGradient);
+                        RelativeLayout mContainer = findViewById(R.id.mContainer);
+                        gradient.setBackgroundResource(R.drawable.gradient_bg);
+                        mContainer.setBackgroundResource(R.drawable.main_bg);
+                        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
+                                new int[]{0xff000000, 0x00000000});
+                        gradient.setBackground(gradientDrawable);
+                        GradientDrawable gradientDrawableBg = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
+                                new int[]{0xff000000, 0xff000000});
+                        mContainer.setBackground(gradientDrawableBg);
+                        song_name.setTextColor(Color.WHITE);
+                        artist_name.setTextColor(Color.DKGRAY);
+                        duration_played.setTextColor(Color.WHITE);
+                        duration_total.setTextColor(Color.WHITE);
+                    }
+                }
+            });
         }else{
             Glide.with(this)
                     .asBitmap()
@@ -437,6 +441,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
             mContainer.setBackgroundResource(R.drawable.main_bg);
             song_name.setTextColor(Color.WHITE);
             artist_name.setTextColor(Color.DKGRAY);
+            duration_played.setTextColor(Color.WHITE);
+            duration_total.setTextColor(Color.WHITE);
         }
     }
     public void ImageAnimation(Context context, ImageView imageView, Bitmap bitmap)

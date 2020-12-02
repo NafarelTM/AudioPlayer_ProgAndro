@@ -66,12 +66,10 @@
 
         <ImageView
             android:id="@+id/imageViewGradient"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="0dp" />
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 
