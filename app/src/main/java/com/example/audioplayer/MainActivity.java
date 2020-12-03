@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.MediaPlayer;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffleBoolean = false, repeatBoolean = false;
     static ArrayList<MusicFiles> albums = new ArrayList<>();
+    private String MY_SORT_PREF = "SortOrder";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,10 +117,23 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    public static ArrayList<MusicFiles> getAllMusic(Context context){
+    public ArrayList<MusicFiles> getAllMusic(Context context){
+        SharedPreferences preferences = getSharedPreferences(MY_SORT_PREF, MODE_PRIVATE);
+        String sortOrder = preferences.getString("sorting", "sortByName");
+        String order = null;
         ArrayList<String> duplicate = new ArrayList<>();
+        albums.clear();
         ArrayList<MusicFiles> tempMusicList = new ArrayList<>();
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        switch(sortOrder){
+            case "sortByName":
+                order = MediaStore.MediaColumns.DATE_ADDED + " ASC";
+                break;
+            case "sortByDate":
+                order = MediaStore.MediaColumns.DISPLAY_NAME + " ASC";
+                break;
+
+        }
         String[] projection = {
                 MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.TITLE,
@@ -128,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 MediaStore.Audio.Media._ID
         };
         Cursor cursor = context.getContentResolver().query(uri, projection,
-                null, null, null);
+                null, null, order);
         if(cursor != null){
             while (cursor.moveToNext()){
                 String album = cursor.getString(0);
@@ -175,5 +190,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
         SongsFragment.musicAdapter.updateList(files);
         return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        SharedPreferences.Editor editor = getSharedPreferences(MY_SORT_PREF, MODE_PRIVATE).edit();
+        switch(item.getItemId()){
+            case R.id.by_name:
+                editor.putString("sorting", "sortByName");
+                editor.apply();
+                this.recreate();
+            case R.id.by_date:
+                editor.putString("sorting", "sortByDate");
+                editor.apply();
+                this.recreate();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
