@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import static com.example.audioplayer.MainActivity.musicFiles;
+import static com.example.audioplayer.MusicAdapter.mFiles;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +19,7 @@ import static com.example.audioplayer.MainActivity.musicFiles;
 public class SongsFragment extends Fragment {
 
     RecyclerView recyclerView;
-    MusicAdapter musicAdapter;
+    static MusicAdapter musicAdapter;
 
     public SongsFragment() {
         // Required empty public constructor
