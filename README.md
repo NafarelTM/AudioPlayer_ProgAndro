@@ -1,0 +1,15 @@
+### APLIKASI MUSIK PLAYER
+Tugas ini digunakan untuk memenuhi tugas akhir mata kuliah Pemprograman Android 
+
+### Editor
+![](https://rokzfast.com/wp-content/uploads/2020/10/Android-Studio-41-leaves-beta-with-integrated-emulator-and-enhanced.png)
+
+### TEAM
+
+`Akira Rafhael Janson Pattirane 71180284`
+
+`Nafarel Triyoga Maskuncoro 71180336`
+
+`Ebentera Santosa 71180358`
+
+`Hezkiel Rivaldo Siregar 71180367`
