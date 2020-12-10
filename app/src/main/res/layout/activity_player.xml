@@ -130,17 +130,17 @@
             android:src="@drawable/ic_skip_previous"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/play_pause"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="32dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/play_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/play_pause"
-            android:src="@drawable/ic_play"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
             android:focusable="true"
-            android:clickable="true"/>
+            android:src="@drawable/ic_play"/>
 
         <!--    Tombol next Song    -->
         <ImageView
@@ -151,7 +151,7 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/play_pause"
             android:layout_marginStart="32dp"/>
-        <!--    Tombol Previous Song    -->
+        <!--    Tombol Repeat    -->
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"

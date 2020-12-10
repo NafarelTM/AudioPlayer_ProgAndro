@@ -43,7 +43,7 @@ public class AlbumDetails extends AppCompatActivity {
                     .into(albumPhoto);
         } else{
             Glide.with(this)
-                    .load(R.drawable.iu)
+                    .load(R.drawable.music)
                     .into(albumPhoto);
         }
 

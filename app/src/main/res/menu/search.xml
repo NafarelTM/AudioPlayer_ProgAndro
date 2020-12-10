@@ -18,6 +18,10 @@
                                 android:id="@+id/by_name"
                                 app:showAsAction="never"/>
                         <item
+                            android:title="Artist"
+                            android:id="@+id/by_artist"
+                            app:showAsAction="never"/>
+                        <item
                             android:title="Date"
                             android:id="@+id/by_date"
                             app:showAsAction="never"/>

@@ -127,10 +127,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         switch(sortOrder){
             case "sortByName":
-                order = MediaStore.MediaColumns.DATE_ADDED + " ASC";
+                order = MediaStore.MediaColumns.TITLE + " ASC";
+                break;
+            case "sortByArtist":
+                order = MediaStore.MediaColumns.ARTIST + " ASC";
                 break;
             case "sortByDate":
-                order = MediaStore.MediaColumns.DISPLAY_NAME + " ASC";
+                order = MediaStore.MediaColumns.DATE_ADDED + " ASC";
                 break;
 
         }
@@ -200,10 +203,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 editor.putString("sorting", "sortByName");
                 editor.apply();
                 this.recreate();
+                break;
+            case R.id.by_artist:
+                editor.putString("sorting", "sortByArtist");
+                editor.apply();
+                this.recreate();
+                break;
             case R.id.by_date:
                 editor.putString("sorting", "sortByDate");
                 editor.apply();
                 this.recreate();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
