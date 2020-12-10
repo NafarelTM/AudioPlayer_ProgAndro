@@ -24,6 +24,13 @@
         <activity android:name=".MainActivity" />
 
         <service android:name=".MusicService" android:enabled="true"/>
+        <receiver android:name=".NotificationReceiver">
+                <intent-filter>
+                    <action android:name="actionprevious"/>
+                    <action android:name="actionnext"/>
+                    <action android:name="actionplay"/>
+                </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
