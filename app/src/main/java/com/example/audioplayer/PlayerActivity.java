@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static com.example.audioplayer.AlbumDetailsAdapter.albumFiles;
+import static com.example.audioplayer.ApplicationClass.ACTION_NEXT;
 import static com.example.audioplayer.ApplicationClass.ACTION_PLAY;
 import static com.example.audioplayer.ApplicationClass.ACTION_PREVIOUS;
 import static com.example.audioplayer.ApplicationClass.CHANNEL_ID_2;
@@ -57,7 +58,6 @@ public class PlayerActivity extends AppCompatActivity implements  ActionPlay, Se
     int position = -1;
     static ArrayList<MusicFiles> listSongs = new ArrayList<>();
     static Uri uri;
-//    static MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
     private Thread playThread, prevThread, nextThread;
     MusicService musicService;
@@ -70,6 +70,15 @@ public class PlayerActivity extends AppCompatActivity implements  ActionPlay, Se
         mediaSessionCompat = new MediaSessionCompat(getBaseContext(), "My Audio");
         initViews();
         getIntentMethod();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -545,7 +554,7 @@ public class PlayerActivity extends AppCompatActivity implements  ActionPlay, Se
                 .getBroadcast(this, 0, pauseIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Intent nextIntent = new Intent(this, NotificationReceiver.class)
-                .setAction(ACTION_PREVIOUS);
+                .setAction(ACTION_NEXT);
         PendingIntent nextPending = PendingIntent
                 .getBroadcast(this, 0, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 

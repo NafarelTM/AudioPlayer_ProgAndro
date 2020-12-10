@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/menu_btn"
             android:layout_toEndOf="@+id/back_btn"
             android:background="@android:color/transparent"
             android:gravity="center_horizontal"
@@ -38,15 +37,6 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-        <!-- button menu pada bagian kanan atas-->
-        <ImageView
-            android:id="@+id/menu_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_menu" />
 
     </RelativeLayout>
 

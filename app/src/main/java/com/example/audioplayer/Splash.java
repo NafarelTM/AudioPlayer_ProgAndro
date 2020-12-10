@@ -16,9 +16,8 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //menghilangkan ActionBar
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.splash);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

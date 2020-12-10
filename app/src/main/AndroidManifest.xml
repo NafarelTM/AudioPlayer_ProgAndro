@@ -13,7 +13,7 @@
         android:name=".ApplicationClass"
         android:theme="@style/Theme.AudioPlayer">
         <activity android:name=".AlbumDetails"></activity>
-        <activity android:name=".Splash">
+        <activity android:name=".Splash" android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
