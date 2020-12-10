@@ -23,6 +23,7 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
     ArrayList<MusicFiles> musicFiles= new ArrayList<>();
     Uri uri;
     int position = -1;
+    ActionPlay actionPlay;
 
     @Override
     public void onCreate() {
@@ -110,6 +111,11 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-
+        if(actionPlay != null){
+            actionPlay.nextBtnClicked();
+        }
+        createMediaPlayer(position);
+        mediaPlayer.start();
+        onCompleted();
     }
 }
