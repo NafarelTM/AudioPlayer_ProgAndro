@@ -518,6 +518,7 @@ public class PlayerActivity extends AppCompatActivity implements  ActionPlay, Se
     public void onServiceConnected(ComponentName name, IBinder service) {
         MusicService.MyBinder myBinder = (MusicService.MyBinder) service;
         musicService = myBinder.getService();
+        musicService.setCallBack(this);
         seekBar.setMax(musicService.getDuration() / 1000);
         metaData(uri);
         song_name.setText(listSongs.get(position).getTitle());
