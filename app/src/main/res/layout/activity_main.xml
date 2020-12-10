@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabIndicatorColor="#009688"
+        app:tabIndicator="@drawable/gradient_bg"
+        app:tabIndicatorColor="#0076DD"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="stretch"
         app:tabTextColor="@color/white">
@@ -30,10 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Tuesday" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wednesday" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

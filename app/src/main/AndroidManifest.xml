@@ -13,23 +13,23 @@
         android:name=".ApplicationClass"
         android:theme="@style/Theme.AudioPlayer">
         <activity android:name=".AlbumDetails"></activity>
-        <activity android:name=".Splash" android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Splash" android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlayerActivity" />
+        <activity android:name=".PlayerActivity" android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity android:name=".MainActivity" />
 
         <service android:name=".MusicService" android:enabled="true"/>
         <receiver android:name=".NotificationReceiver">
-                <intent-filter>
-                    <action android:name="actionprevious"/>
-                    <action android:name="actionnext"/>
-                    <action android:name="actionplay"/>
-                </intent-filter>
+            <intent-filter>
+                <action android:name="actionprevious"/>
+                <action android:name="actionnext"/>
+                <action android:name="actionplay"/>
+            </intent-filter>
         </receiver>
     </application>
 
