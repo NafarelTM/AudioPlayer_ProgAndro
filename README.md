@@ -13,3 +13,7 @@ Tugas ini digunakan untuk memenuhi tugas akhir mata kuliah Pemprograman Android
 `Ebentera Santosa 71180358`
 
 `Hezkiel Rivaldo Siregar 71180367`
+
+Referensi :
+
+https://www.youtube.com/watch?v=bsXaM4G4D_w&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ
